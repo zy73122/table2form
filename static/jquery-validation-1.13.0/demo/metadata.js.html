@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>jquery.metadata.js</title>
+	<script src="../lib/jquery.js"></script>
+	<script src="../dist/jquery.validate.js"></script>
+	<script src="../../js/jquery.metadata.js"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+			jQuery.validator.addMethod("phone", function(val, element) {
+			   var tel = /^(\d{3,4}-?)?\d{7,9}$/g;
+			   return this.optional(element) || (tel.test(val));
+		}, "请正确填写您的电话号码");
+		
+		$('#jqueryForm').validate();
+
+});
+</script>
+</head>
+
+<body>
+
+	<form  id="jqueryForm" name="jqueryForm"  method="post"  action="" >
+
+		<table cellspacing="0" cellpadding="0">
+			<tr>
+				<td>用户名</td>
+				<td><input type="text" name="username" class="{required:true,minlength:6,maxlength:10,messages:{required:'请输入内容',minlength:'最少6个字符'}}" title="ssss" /></td>
+			<td></td>
+			</tr>
+			<tr>
+				<td>密码</td>
+				<td><input type="password" name="password" id="password" class="{required:true,minlength:6,maxlength:10}"/></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>确认密码</td>
+				<td><input type="password" name="repass" class="{required:true,minlength:6,maxlength:10,equalTo:'#password'}"/></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>手机号码</td>
+				<td><input type="text" name="phone" id="phone" class="{required:true,phone:true}"/></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>邮箱</td>
+				<td><input type="text" name="email" class="{required:true,minlength:6,maxlength:50,email:true}"/></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><input type="submit" id="btn" value="提交"/> <input type="reset" value="重置"/></td>
+			</tr>
+		</table>
+	</form>
+  </body>
+</html>

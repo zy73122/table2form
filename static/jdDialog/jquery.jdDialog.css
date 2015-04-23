@@ -1,0 +1,91 @@
+@charset "utf-8";
+/* CSS Document */
+.jdDialog_mark ul,.jdDialog_mark ol,.jdDialog_mark li,.jdDialog_mark h3,.jdDialog_mark h4,.jdDialog_mark span{ margin:0; padding:0 }
+.jdDialog_mark ul,.jdDialog_mark ol,.jdDialog_mark li { list-style-position:inside; list-style-type:  square; line-height:1.8em; height:1.8em; cursor:pointer}
+.jdDialog_mark a { color:#333; text-decoration:underline}
+.jdDialog_mark h3 {}
+.jdDialog_warp,.jdDialog_mark { font-size:13px; font-family: Arial, Verdana, "宋体"; letter-spacing:1px}
+
+
+/* mark */
+.jdDialog_mark { width:100%; height:100%; background:#000000; filter : progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=25,finishOpacity=100); z-index:999; position:absolute; top:0; left:0 }
+
+/* normal */
+.jdDialog_warp { position:absolute; top:20px; left:300px; font-size:12px;z-index:1000; }
+.jdDialog_head { height:27px; line-height:27px; background: #CCCCCC; color:#333333; padding-left:5px;  }
+.jdDialog_body { padding:5px; }
+.jdDialog_btn_container { bottom:10px; border-top:1px solid #CCC; width:95%; text-align:right; padding:5px 10px 0 0; }
+.jdDialog_hover { cursor: move}
+.jdDialog_warp button{ margin-right:10px } 
+.jdDialog_container{ overflow:auto}
+
+/* help */
+.jdDialog_helpup {line-height:1.2em}
+.jdDialog_helpup_header { background:url(images/help_t1.gif) top no-repeat;height:9px; overflow:hidden; font-size:13px}
+.jdDialog_helpup_center { background:#FFFFE1 repeat; border-left:1px solid #000000; border-right:1px solid #000000; padding:5px 10px;}
+.jdDialog_helpup_title { background:url(images/action.gif) no-repeat; height:25px; font-weight:bold; text-indent:15px}
+.jdDialog_helpup_footer { background:url(images/help_b1.gif) no-repeat;  height:22px;}
+.jdDialog_helpdown {line-height:1.2em}
+.jdDialog_helpdown_header { background:url(images/help_t2.gif) top no-repeat;height:22px; overflow:hidden; font-size:13px}
+.jdDialog_helpdown_center { background:#FFFFE1 repeat; border-left:1px solid #000000; border-right:1px solid #000000; padding:5px 10px;}
+.jdDialog_helpdown_title { background:url(images/action.gif) no-repeat; height:25px; font-weight:bold; text-indent:15px}
+.jdDialog_helpdown_footer { background:url(images/help_b2.gif) no-repeat;  height:9px;}
+
+/* tip */
+.jdDialog_tip {  }
+
+.jdDialog_cache { width:0; height:0; position:absolute; left:0; top:0}
+
+/* 一些图标*/
+.icon_waring {background:url(images/tipicon.png) 0 0 no-repeat; width:17px; height:17px;}
+.icon_error {background:url(images/tipicon.png) 0 -17px no-repeat; width:17px; height:17px;}
+.icon_confirm {background:url(images/tipicon.png) 0 -33px no-repeat; width:17px; height:17px;}
+.icon_query {background:url(images/tipicon.png) 0 -49px no-repeat; width:17px; height:16px;}
+.icon_message {background:url(images/tipicon.png) 0 -65px no-repeat; width:17px; height:17px;}
+
+/* 设计 */
+/*
+.wap_normal { background:#FFF; border:5px solid #dfdfdf;}
+	.wap_normal .jdDialog_head {background: #FAFAFA; font-weight:bold; color:#000; padding-left:10px; line-height:27px; height:27px;}
+		.wap_normal .jdDialog_icon { margin-top:6px; margin-right:3px; float:left;}
+		.wap_normal .jdDialog_head h3 { display:inline-block; margin:0; float:left; margin-left:2px; font-size:13px; height:27px; line-height:27px;  }
+		.wap_normal .jdDialog_head_close { float:right; margin-right:5px; cursor: pointer; }
+	.wap_normal .jdDialog_body { text-align:center;  font-size:14px; padding-top:10px; }
+	.wap_normal .jdDialog_container {  padding-left:10px;padding-right:10px; line-height:1.5em; display:inline-block}
+	.wap_normal .jdDialog_btn_container { margin:10px auto 0 auto; bottom:10px; left:0 ; text-align:center; border:none}
+*/
+
+/*style1*/
+.wap_normal { background: url(images/style1.png) repeat-x #1169B1; border:1px solid #104987; }
+	.wap_normal .jdDialog_head {background: url(images/style1.png) 0 -216px no-repeat ; font-weight:bold; color:#fff; padding-left:10px; line-height:29px; height:29px;}
+		.wap_normal .jdDialog_icon { display:none !important}
+		.wap_normal .jdDialog_head_right_bg { float:right; background:url(images/style1.png) 0 -300px no-repeat; width:153px; height:29px;line-height:29px; }
+		.wap_normal .jdDialog_head h3 { display:inline-block; margin:0; float:left; margin-left:2px; font-size:13px; height:29px; line-height:29px;color:#fff  }
+		.wap_normal .jdDialog_head_close { float:right; background:url(images/style1.png) 0 -268px no-repeat; width:19px; height:19px; margin-right:3px; margin-top:3px; cursor: pointer; }
+		.wap_normal .jdDialog_head_close strong{ display:none}
+	.wap_normal .jdDialog_body { background:url(images/style1.png) repeat-x 0 -338px #FFF;  text-align:center;  font-size:14px; padding:0px; }
+	.wap_normal .jdDialog_container { padding-left:10px;padding-right:10px;padding-top:10px;  line-height:1.5em;  display:inline-block}
+	.wap_normal .jdDialog_btn_container { margin:10px auto 10px auto; bottom:10px; left:0 ; text-align:center; border:none}
+	
+.wap_small { background:#FFF; border:5px solid #dfdfdf; /*width:200px; height:80px*/}
+	.wap_small .jdDialog_body { }
+	.wap_small .jdDialog_container { padding:10px 5px 5px 30px; line-height:17px; height:17px;}
+		.wap_small .jdDialog_icon { margin-top:0px; float:left}
+	.wap_small .jdDialog_btn_container { margin:10px auto 0 auto; position: absolute; bottom:10px; left:0 ; text-align:center; border:none}
+	
+.wap_loading {border:1px solid #684E02; padding:3px 20px; width:180px; height:20px !important; line-height:20px; text-align:center; background:#FCFBE0 url(images/loading.gif) 38px no-repeat}
+.wap_loading2 { width:140px; height:32px !important; line-height:32px; text-align:left; padding-left:43px; background:url(images/loading2.gif) 22px no-repeat; color: #333;}
+.wap_loading3 {background:url(images/loading3.gif) no-repeat;}
+.wap_tip {border:1px solid #684E02; background:#FCFBE0; padding:3px 20px; width:180px; height:20px !important; text-align:center}
+.wap_helpup {}
+.wap_helpdown {}
+.wap_auto { border:1px solid #684E02; background:#FCFBE0;}
+	.wap_auto .jdDialog_head { background: #FCFBE0; font-weight:bold; color:#000; padding-left:10px; line-height:27px; height:27px;}
+	.wap_auto .jdDialog_head h3 { margin:0; display:block; float:left; margin-left:2px; font-size:13px;  }
+	.wap_auto .jdDialog_head_close { float:right; margin-right:5px; cursor: pointer; }
+	.wap_auto .jdDialog_auto{ padding:5px 0 10px 10px;}
+
+.wap_iframe .jdDialog_body { padding:0; }
+.wap_iframe .jdDialog_container {padding:0; overflow: auto}
+.wap_ajax .jdDialog_body { padding:0; }
+.wap_ajax .jdDialog_container {padding:0; overflow: auto}

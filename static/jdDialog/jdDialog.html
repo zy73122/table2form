@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="../../static/js/jquery-1.11.1.min.js"></script>
+<link href="jquery.jdDialog.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="jquery.jdDialog.js"></script>
+<script type="text/javascript">
+$(function(){
+	
+	var dlghelpup;
+	$('#help1').hover(
+		function(e){//mouserover
+			dlghelpup = $.jdDialog({
+				title: '帮助1',
+				content: '帮助内容',
+				type: 'helpup',
+				left: e.pageX-20,
+				top: e.pageY-100
+			});
+			dlghelpup.show();
+		},
+		function(){//mouserout
+			dlghelpup.close();
+		}
+	);
+	
+	var dlghelpdown;
+	$('#help2').hover(
+		function(e){//mouserover
+			 dlghelpdown = $.jdDialog({
+				title: '帮助2',
+				content: '帮助内容',
+				type: 'helpdown',
+				left: ($('#help2').offset().left+80),
+				top: ($('#help2').offset().top+20)
+			});
+			dlghelpdown.show();
+			dlghelpdown.p.hide().slideDown();
+		},
+		function(){//mouserout
+			dlghelpdown.p.slideUp();
+			dlghelpdown.close();
+		}
+	);
+	
+	//tip 简单提示信息 
+	$('#help3').click(function(){
+		var _this = $(this);
+		d = $.jdDialog({
+			type: 'tip',
+			content: '发表成功，经验 + 5',
+			autoclose: true,
+			left:_this.offset().left,
+			top:_this.offset().top+30
+		});
+		d.show();
+	});
+	
+	//loading
+	var dialog_loading,dialog_loading2,dialog_loading3;
+	$('#help4 span:first').click(function(){
+		dialog_loading = $.jdDialog({
+			content: '正在加载列表数据...',
+			type: 'loading' //loading,loading2,loading3
+		});
+		dialog_loading.show();
+	});
+	$('#help4 span:first').next().click(function(){
+		dialog_loading2 = $.jdDialog({
+			content: '',
+			type: 'loading2' //loading,loading2,loading3
+		});
+		dialog_loading2.show();
+	});
+	$('#help4 span:first').next().next().click(function(){
+		dialog_loading3 = $.jdDialog({
+			content: '',
+			type: 'loading3' //loading,loading2,loading3
+		});
+		dialog_loading3.show();
+	});
+	$('#help4 span:last').click(function(e){
+		if (dialog_loading) dialog_loading.close();
+		if (dialog_loading2) dialog_loading2.close();
+		if (dialog_loading3) dialog_loading3.close();
+	});
+	
+	//normal dialog //type为normal或空时会自动添加确定按钮
+	$('#help5').click(function(){
+		var dlg = $.jdDialog({
+			title: '普通对话框',
+			content: '一些内容，字体居中一些内容',
+			textalign: 'center',//可不设置
+			//showicon: false, 是否显示图标
+			width: '370px', //可不设置
+			height: '110px',//可不设置
+			position: 'center',//可不设置 //要设置width、height后才能居中
+			buttons: {
+				'确 认': function() {
+					dlg.close();
+				}
+			}
+		});
+		dlg.show();
+	});
+	
+	//modal dialog
+	$('#help6').click(function(){
+		var dlg = $.jdDialog({
+			title: '模态对话框',
+			content: '这是一个模态对话框，可拖拽',
+			type: 'normal',
+			modal: true,
+			moveable: true,
+			cache: '001', //缓存标识
+			buttons: {
+				'确 认': function() { //取名“确认”、“OK”、“confirm”时，系统会自动为该按钮绑定Enter键响应
+					dlg.hide();
+				},
+				'取 消': function() { //取名“取消”、“Cancle”时，系统会自动为该按钮绑定Esc键响应
+					dlg.hide();
+				}
+			},
+			onClose : function(e) {
+			}
+		});
+		dlg.show();
+	});
+	
+	//confirm、cancle
+	$('#help7').click(function(){
+		var dlg = $.jdDialog({
+			type: 'small',
+			content: '确认要删除吗',
+			buttons: {
+				'确 认': function() {
+					alert('您点了确认');
+					dlg.close();
+				},
+				'取 消': function() {
+					dlg.close();
+				}
+			},
+			onClose : function(e) {
+			}
+		});
+		dlg.show();
+		dlg.p.hide().animate({
+		   top: $('#help7').offset().top, opacity: 'show'
+		}, { duration: 500 });
+	});
+	
+	//auto width\height
+	$('#help8').hover(
+		function(e){//mouserover
+			dlghelpup = $.jdDialog({
+				title: '信息信息',
+				content: '<div style="width:400px">很多信息很多信息很多信息很多信息很多信息很多信息很多信息很多信息很多信息很多信息很多信息很多信息很多信息很多信息很多信息很多信息很多信息很多信息很多信息很多信息很多信息很多信息很多信息很多信息很多信息很多信息很多信息很多信息很多信息很多信息很多信息很多信息很多信息很多信息很多信息很多信息</div>',
+				type: 'auto',
+				left: e.pageX+20,
+				top: e.pageY+10
+			});
+			dlghelpup.show();
+		},
+		function(){//mouserout
+			dlghelpup.close();
+		}
+	);	
+	
+	//ajax
+	$('#help9').click(function(){
+		$.jdDialog({
+			width:'400px',
+			height:'200px',
+			content: {type:'ajax', url:'http://localhost'}
+		}).show();
+	});
+	
+	//iframe
+	$('#help10').click(function(){
+		$.jdDialog({
+			width:'450px',
+			height:'600px',
+			content: {type:'iframe', url:'http://www.163.com'}
+		}).show();
+	});
+	
+});	
+</script>
+
+<style type="text/css">
+
+#samplebox,#samplebox li { margin:0; padding:0 }
+#samplebox li { list-style: inside decimal; height:30px; line-height:30px; border-bottom:1px dotted #CCC; }
+</style>
+<title>无标题文档</title>
+</head>
+
+<body>
+<div style="width: 400px; margin: 50px auto;">
+<h3>jquery.jdDialog插件使用示例：</h3>
+<ul id="samplebox" style="width:400px">
+<li id="help1"><a>上面显示帮助信息</a></li>
+<li id="help2">下面显示帮助信息</li>
+<li id="help3">简单提示信息 自动关闭</li>
+<li id="help4"><span>loading</span> <span>loading2</span> <span>loading3</span> <span>关闭</span></li>
+<li id="help5">普通对话框</li>
+<li id="help6">模态对话框 可移动、缓存</li>
+<li id="help7">确认、取消框</li>
+<li id="help8">提示信息、自动宽高</li>
+<li id="help9">ajax获取内容</li>
+<li id="help10">iframe其他页面</li>
+</ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,493 @@
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1  order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1  order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1  order by primary_id desc limit 8,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1  order by primary_id desc limit 8,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1  order by primary_id desc limit 16,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1  order by primary_id desc limit 16,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1  order by primary_id desc limit 24,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1  order by primary_id desc limit 24,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1  order by primary_id desc limit 32,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1  order by primary_id desc limit 32,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1  order by primary_id desc limit 40,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1  order by primary_id desc limit 40,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1  order by primary_id desc limit 48,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1  order by primary_id desc limit 48,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1  order by primary_id desc limit 56,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1  order by primary_id desc limit 56,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1  order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1  order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where nickname like 'my%' order by primary_id desc limit 0,12
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1  order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1  order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1  order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where nickname like 'm%' order by primary_id desc limit 0,12
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1  order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where isguest=''and nickname='m' order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where isguest='' and nickname='m' order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where nickname='m' order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where isguest='1' and nickname='快速搜索用户名' order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where nickname like 'n%' order by primary_id desc limit 0,12
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where nickname like 'm%' order by primary_id desc limit 0,12
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where isguest='1' and nickname='m' order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where isguest='1' and nickname='m' order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where nickname='m' order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where Array AND nickname like '%m%' order by primary_id desc limit 0,8
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1 AND nickname like '%m%' order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1 AND nickname like '%my%' order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1 AND nickname like '%快速搜索用户名%' AND isguest = '0' order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1 AND nickname like '%快速搜索用户名%' AND isguest = '1' order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where nickname like 'm%' order by primary_id desc limit 0,12
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1 AND nickname like '%m%' order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where nickname like ',%' order by primary_id desc limit 0,12
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where nickname like 'm%' order by primary_id desc limit 0,12
+SELECT FOUND_ROWS();
+SET names utf8
+select table_name,create_time from information_schema.tables where table_schema='table2form'
+SET names utf8
+select table_name,create_time from information_schema.tables where table_schema='jdphp108'
+SET names utf8
+select table_name,create_time from information_schema.tables where table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND username like '%%' AND nickname like '%%' AND status = '' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND username like '%%' AND nickname like '%%' AND status = '' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND username like '%%' AND nickname like '%%' AND status = '' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where nickname like 'a%' order by uid desc limit 0,12
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where nickname like 'as%' order by uid desc limit 0,12
+SELECT FOUND_ROWS();
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where nickname like 'k%' order by uid desc limit 0,12
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND status = '1' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where nickname like 'k%' order by uid desc limit 0,12
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND status = '1' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND status = '1' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND status = '1' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND status = '1' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND status = '1' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND status = '1' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND status = '1' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND status = '1' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where nickname like 'k%' order by uid desc limit 0,12
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND nickname like '%k%' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND nickname like '%k%' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND nickname like '%k%' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND nickname like '%k%' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND nickname like '%k%' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND status = '1' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND status = '0' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND status = '1' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND status = '1' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where nickname like 'a%' order by uid desc limit 0,12
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND status = '1' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where nickname like 'a%' order by uid desc limit 0,12
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where nickname like 'a%' order by uid desc limit 0,12
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND status = '1' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND status = '1' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND status = '1' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND status = '1' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+UPDATE `jd_testtb` SET `status` = '0' WHERE uid = '129'
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND status = '1' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+UPDATE `jd_testtb` SET `status` = '1' WHERE uid = '126'
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND status = '1' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND status = '--请选择帐号状态，=0为禁用，=1为正常，默认为=1--' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+SELECT *,uid as id FROM `jd_testtb` WHERE uid=129
+SELECT *,uid as id FROM `jd_testtb` WHERE uid=129
+UPDATE `jd_testtb` SET `isguest` = '1' WHERE uid = '126'
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+UPDATE `jd_testtb` SET `isguest` = '0' WHERE uid = '126'
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1 order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+UPDATE `jd_testtb` SET `status` = '1' WHERE uid = '128'
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+DELETE FROM `jd_testtb` WHERE uid in('128')
+DELETE FROM `jd_testtb` WHERE uid in('128')
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+DELETE FROM `jd_testtb` WHERE uid in('127')
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+DELETE FROM `jd_testtb` WHERE uid in('126')
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 8,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 8,8
+SELECT FOUND_ROWS();
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 8,8
+SELECT FOUND_ROWS();
+INSERT INTO `jd_testtb` (`username`, `nickname`, `password`, `goldenmoney`, `email`, `isguest`, `exp`, `lev`, `avatar_id`, `avatar_active`, `lastlogintime`, `lastloginip`, `logincount`, `status`) VALUES ('', '', '', '', '', '', '', '', '', '', '', '', '', '1')
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+SELECT *,uid as id FROM `jd_testtb` WHERE uid=130
+SELECT *,uid as id FROM `jd_testtb` WHERE uid=130
+UPDATE `jd_testtb` SET `username` = '', `nickname` = '', `password` = '', `goldenmoney` = '0', `email` = '', `isguest` = '0', `exp` = '0', `lev` = '0', `avatar_id` = '0', `avatar_active` = '<p>adasd</p>
+<p>&nbsp;</p>', `lastlogintime` = '', `lastloginip` = '', `logincount` = '0', `status` = '1' WHERE uid = '130'
+SELECT *,uid as id FROM `jd_testtb` WHERE uid=130
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+SELECT *,uid as id FROM `jd_testtb` WHERE uid=129
+SELECT *,uid as id FROM `jd_testtb` WHERE uid=129
+SELECT *,primary_id as id FROM `jd_sample` WHERE primary_id=59
+SELECT *,primary_id as id FROM `jd_sample` WHERE primary_id=59
+SELECT *,primary_id as id FROM `jd_sample` WHERE primary_id=59
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SELECT *,uid as id FROM `jd_testtb` WHERE uid=129
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SELECT *,uid as id FROM `jd_testtb` WHERE uid=129
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND status = '1' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND status = '1' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,uid as id from jd_testtb where 1 AND status = '0' order by uid desc limit 0,8
+SELECT FOUND_ROWS();
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+SELECT *,primary_id as id FROM `jd_sample` WHERE primary_id=59
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1 order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where nickname like 'm%' order by primary_id desc limit 0,12
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1 order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where nickname like 'my%' order by primary_id desc limit 0,12
+SELECT FOUND_ROWS();
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1 order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1 order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1 order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1 order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1 order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1 order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1 order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1 order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where nickname like 'my%' order by primary_id desc limit 0,12
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1 order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where nickname like ',y%' order by primary_id desc limit 0,12
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where nickname like 'my%' order by primary_id desc limit 0,12
+SELECT FOUND_ROWS();
+SET names utf8
+show table status where name='jd_testtb'
+SELECT column_name,column_type,column_key,extra,column_comment,is_nullable,column_default  from information_schema.columns WHERE table_name ='jd_testtb' and table_schema='table2form'
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1 order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1 order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1 order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1 order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1 order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where nickname like 'my%' order by primary_id desc limit 0,12
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1 order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where nickname like 'my%' order by primary_id desc limit 0,12
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1 AND nickname like '%my1355236034491%' order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where nickname like 'my%' order by primary_id desc limit 0,12
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1 AND nickname like '%my1355236034491%' order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where nickname like 'my%' order by primary_id desc limit 0,12
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where nickname like 'my%' order by primary_id desc limit 0,12
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1 AND nickname like '%my1355236034491%' order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where nickname like 'my%' order by primary_id desc limit 0,12
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1 AND nickname like '%my1355211691650%' order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1 order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where nickname like 'my%' order by primary_id desc limit 0,12
+SELECT FOUND_ROWS();
+select SQL_CALC_FOUND_ROWS *,primary_id as id from jd_sample where 1 AND nickname like '%my1355211207200%' order by primary_id desc limit 0,8
+SELECT FOUND_ROWS();

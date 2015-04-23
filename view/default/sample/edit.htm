@@ -1,0 +1,58 @@
+<!--{template 'header'}-->
+
+<div class="wrap">
+    <div class="container">
+        <div id="main">
+            <div class="con box-green">
+                <form action="{:U('sample/edit')}" method="post" enctype="multipart/form-data">
+                    <div class="box-header">
+                        <h4>{if $data['id'] }编辑{else}添加{/if}示例</h4>
+                    </div>
+                    <div class="box-content">
+
+                        <!--模型edit数据--><!--900-->
+                        <table class="table-font">
+                            <tr>
+                                <th class="w120">示例名称：</th>
+                                <td><input name="nickname" type="text" class="textinput w270" id="nickname" value="{$data['nickname']}" /></td>
+                            </tr>
+                            <tr>
+                                <th style="VERTICAL-ALIGN: top">描述：</th>
+                                <td><textarea name="remark" rows="5" class="textinput w270" id="remark">{$data['remark']}</textarea></td>
+                            </tr>
+                            <tr>
+                                <th style="VERTICAL-ALIGN: top">图标：</th>
+                                <td><input name="upimage[]" type="file" id="upimage"> <input name="removeico" type="radio" value="yes">去掉图标<br>
+                                    {if $data['img_url']}<img src="../{$data['img_url']}" width="150" />{/if}
+                                </td>
+                            </tr>
+                        </table>
+                        <!--模型edit数据 end-->
+
+                    </div>
+                    <div class="box-footer">
+                        <div class="box-footer-inner">
+                            <input type="submit" class="formbtn" value="提交" />
+                            <input type="button" class="formbtn" value="返回" onclick="javascript:history.go(-1)" />
+                            {if $_REQUEST['id']}
+                            <input name="id" type="hidden" id="id" value="{$_REQUEST['id']}">
+                            {/if}
+                            {if $_REQUEST['parent']}
+                            <input name="parent" type="hidden" id="parent" value="{$_REQUEST['parent']}">
+                            {elseif $data['parent']}
+                            <input name="parent" type="hidden" id="parent" value="{$data['parent']}">
+                            {/if}
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--/ con--> 
+
+        </div>
+    </div>
+    <!--/ container--> 
+
+</div>
+<!--/ wrap-->
+
+<!--{template 'footer'}-->

@@ -1,0 +1,32 @@
+<!--{template 'header'}-->
+
+这是变量输出: $status 
+<br>
+
+这是if\loop输出: 
+<!--{if $choose }--> 
+1<br>
+<!--{loop $applist $key $val}-->
+						$key -- $val <br>
+<!--{/loop}-->
+<!--{else}--> 
+2 <br>
+<!--{/if}-->
+
+这是变量设置:
+<!--{eval $i = 'setval';}-->
+i = $i		
+<br>
+
+这是执行php代码:
+{eval print_r($applist);var_dump(time());}	
+<br>
+
+这是lang设置(template.class.php):
+title = {lang title}
+<br>
+
+
+
+
+			

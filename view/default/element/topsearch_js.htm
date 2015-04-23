@@ -1,0 +1,30 @@
+
+	//搜索{#column_cn#}
+	public function ajax_search_{#column_en#}()
+	{
+		$q = strtolower($_GET["term"]);
+		if (!$q) exit;
+		$data = $this->model->get_list("{#column_en#} like \'$q%\'", 0, 12);
+
+		$result = array();
+		if(!empty($data["data"]))
+		{
+			foreach ($data["data"] as $value)
+			{
+				if (strpos(strtolower($value["{#column_en#}"]), $q) !== false)
+				{
+					$product_id = $value["id"];
+					$one = array(
+					"id" => $product_id,
+					"value" => strip_tags($value["{#column_en#}"]),
+					);
+					array_push($result, $one);
+				}
+				if (count($result)>=10)
+				break;
+			}
+		}
+		echo json_encode($result);
+		exit;
+	}
+	
