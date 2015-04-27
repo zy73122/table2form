@@ -65,11 +65,23 @@ class template {
             }
             $this->complie();
         }
+        $this->complie();
         return $this->objfile;
     }
 
     function complie() {
         $template = file_get_contents($this->tplfile);
+
+
+        //模板注释byy   <!---输出HTML代码时会被清空的注释-->
+        //$template = preg_replace("/\/\/[^\n]*\n/is", "", $template);
+        //$template = preg_replace("|<!-- \#([^\n]+)-->\s*\r?\n|i", "", $template);
+        $template = preg_replace("/[ \t]*\<\!--\#.+-->/i", "", $template);
+        //$template = preg_replace("/[ \t]+\<\!--/i", "<!--", $template);  // 去掉<!--前面的空格
+        $template = preg_replace("/\s+\n/i", "\n", $template);  // 去掉空行
+        $template = preg_replace("/[ \t]+\{/i", "{", $template); // 取掉 { 之前的空格
+
+
         $template = preg_replace("/\<\!\-\-\{(.+?)\}\-\-\>/s", "{\\1}", $template);
         $template = preg_replace("/\{lang\s+(\w+?)\}/ise", "\$this->lang('\\1')", $template);
 

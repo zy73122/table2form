@@ -3,13 +3,13 @@
 <body id="main_page">
 
 <div id="nav">
-	<a href="?c=createmodel&a=index">创建模型</a>
+	<a href="{:U('createmodel/index')}">创建模型</a>
 </div>
 <div class="wrap">
 	<div class="container">
 		<div id="main">
 			<div class="con box-green">
-				<form action="?c=createmodel&a=createmodel_submit" method="post" enctype="multipart/form-data">
+				<form action="{:U('createmodel/createmodel_submit')}" method="post" enctype="multipart/form-data">
 					<div class="box-header">
 						<h4>创建模型</h4>
 					</div>

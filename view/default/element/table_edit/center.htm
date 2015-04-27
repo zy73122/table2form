@@ -1,0 +1,53 @@
+{loop $columns $column}
+{eval $column_type = $column['column_type']}
+{eval $column_en = $column['column_en']}
+{eval $column_cn = $column['column_cn']}
+{eval $column_default = $column['column_default']}
+{eval $column_is_nullable = $column['column_is_nullable']}
+{eval $column_elemtype = $column['column_elemtype']}
+{eval $column_vin = $column['column_vin']}
+
+<tr>
+    <th class="w120">{$column['column_cn']}：</th>
+    <td>
+    <!--#radio方式显示-->
+    {if $column_elemtype == 'radio'}
+        {loop $column_vin $oneval}
+        <input type="radio" name="{$column_en}" id="{$column_en}" value="{$oneval}" [if #data[$column_en]==$oneval || #column_default == #oneval]checked[/if]>{$oneval}
+        {/loop}
+
+    <!--#select方式显示-->
+    {elseif $column_elemtype == 'select'}
+        <select name="{$column_en}" id="{$column_en}">
+        {loop $column_vin $oneval}
+            <option value="{$oneval}" [if #data[$column_en]==$oneval || #column_default == #oneval]selected="selected"[/if]>{$oneval}</option>
+        {/loop}
+        </select>
+
+    <!--textarea方式显示-->
+    {elseif $column_elemtype == 'textarea'}
+        <textarea name="{$column_en}" class="textinput w270" id="{$column_en}" cols="45" rows="5">{#data["{$column_en}"]}</textarea>
+
+    <!--editor方式显示-->
+    {elseif $column_elemtype == 'textarea_editor'}
+        [eval
+        //在线文本编辑器
+        #editor = new editor('Mine', 'white', 'zh-cn');
+        #editor->setSimple();
+        #centerEditStr = $editor->createHtml($column_en, '{#data[{$column_en}]}');
+        ]
+        [#centerEditStr]
+
+    <!--日期方式显示-->
+    {elseif $column_elemtype == 'datetime'}
+        <input name="{$column_en}" class="textinput w270" id="{$column_en}" value="[if #data[$column_en]][eval echo date("Y-m-d H:i:s", #data[$column_en])][/if]" />
+
+    <!--input方式显示-->
+    {else}
+        <input name="{$column_en}" class="textinput w270" id="{$column_en}" value="{$column_default}" />
+    {/if}
+
+    </td>
+</tr>
+
+{/loop}

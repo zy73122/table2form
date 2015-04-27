@@ -39,7 +39,7 @@ class c_createmodel extends base_controller {
 
         $sys = array('subform'=>'?m=createmodel&a=createmodel_submit');
         $this->view->assign('sys', $sys);
-        $this->view->display($this->view->_dir . 'createmodel.index', null, "admin");
+        $this->view->display('createmodel/index', null, "admin");
     }
 
     public function createmodel_submit()
