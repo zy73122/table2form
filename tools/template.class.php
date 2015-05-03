@@ -65,7 +65,7 @@ class template {
             }
             $this->complie();
         }
-        $this->complie();
+        //$this->complie();
         return $this->objfile;
     }
 
@@ -80,6 +80,8 @@ class template {
         //$template = preg_replace("/[ \t]+\<\!--/i", "<!--", $template);  // 去掉<!--前面的空格
         $template = preg_replace("/\s+\n/i", "\n", $template);  // 去掉空行
         $template = preg_replace("/[ \t]+\{/i", "{", $template); // 取掉 { 之前的空格
+        //<php>..</php>  byy
+        $template = preg_replace("/\<php\>(.+)\<\/php\>/isU", "<?php \\1?>", $template);
 
 
         $template = preg_replace("/\<\!\-\-\{(.+?)\}\-\-\>/s", "{\\1}", $template);

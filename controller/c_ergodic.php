@@ -1,5 +1,7 @@
 <?php
 /**
+ * 遍历MySQL表字段并按模板输出code
+ *
  * Created by PhpStorm.
  * User: Administrator
  * Date: 2015/4/26 0006
@@ -83,6 +85,7 @@ class c_ergodic extends base_controller {
                 //edit代码
                 $autoColumnEditStr = ''; //编辑页面 字段列表
                 $columnsTpl = array();
+                //print_r($columns);exit;
                 foreach ($columns as $k=>$onecolumn)
                 {
                     $column_en = $onecolumn['column_name'];
@@ -142,7 +145,13 @@ class c_ergodic extends base_controller {
                         } else if (preg_match('/(int|tinyint|smallint|mediumint|bigint|integer)\((.*)\)/i', $column_type, $match)) {
                             $vtype = 'int';
                             //$vlen = $match[2];
+                        } else if (preg_match('/(int|tinyint|smallint|mediumint|bigint|integer)/i', $column_type, $match)) {
+                            $vtype = 'int';
+                            //$vlen = $match[2];
                         } else if (preg_match('/(double|float)\((.*)\)/i', $column_type, $match)) {
+                            $vtype = 'double';
+                            //$vlen = $match[2];
+                        } else if (preg_match('/(double|float)/i', $column_type, $match)) {
                             $vtype = 'double';
                             //$vlen = $match[2];
                         }
@@ -176,10 +185,11 @@ class c_ergodic extends base_controller {
                 $this->view->display($element_path.'bottom');
                 $content = ob_get_clean();
 
-                //注意：输出内容含模板语法信息的需要替换回去
-                $content = str_replace('#', '$', $content);
-                $content = str_replace('[', '{', $content);
-                $content = str_replace(']', '}', $content);
+//                //注意：输出内容含模板语法信息的需要替换回去
+//                $content = str_replace('#', '$', $content);
+//                $content = str_replace('[', '{', $content);
+//                $content = str_replace(']', '}', $content);
+                $content = str_replace('\\', '', $content);
             }
 
 
