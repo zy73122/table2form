@@ -1,0 +1,14 @@
+{
+{loop $columns $column}
+{eval $column_type = $column['column_type']}
+{eval $column_en = $column['column_en']}
+{eval $column_cn = $column['column_cn']}
+{eval $column_default = $column['column_default']}
+{eval $column_is_nullable = $column['column_is_nullable']}
+{eval $column_elemtype = $column['column_elemtype']}
+{eval $column_vin = $column['column_vin']}
+{eval $column_vtype = $column['column_vtype']}
+{eval $column_vlen = $column['column_vlen']}
+    "{$column_en}":"{$column_cn} {$column_vtype} {if $column_default},可选值{:implode(',', $column_vin)}{/if} {if $column_default},默认{$column_default}{/if}",
+{/loop}
+}

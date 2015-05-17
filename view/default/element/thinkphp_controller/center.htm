@@ -1,0 +1,65 @@
+//thinkphp 验证规则自动生成
+\$rules = array(
+
+//新增时必填校验
+{loop $columns $column}
+{eval $column_type = $column['column_type']}
+{eval $column_en = $column['column_en']}
+{eval $column_cn = $column['column_cn']}
+{eval $column_default = $column['column_default']}
+{eval $column_is_nullable = $column['column_is_nullable']}
+{eval $column_elemtype = $column['column_elemtype']}
+{eval $column_vin = $column['column_vin']}
+{eval $column_vtype = $column['column_vtype']}
+{eval $column_vlen = $column['column_vlen']}
+
+<!--#{if $column_is_nullable == 'NO' && $column_default === NULL}-->
+{if $column_is_nullable == 'NO'}
+        array("{$column_en}","require","{$column_cn}不能为空",1,"regex",1),
+{/if}
+
+{/loop}
+
+//新增或更新时格式校验
+{loop $columns $column}
+{eval $column_type = $column['column_type']}
+{eval $column_en = $column['column_en']}
+{eval $column_cn = $column['column_cn']}
+{eval $column_default = $column['column_default']}
+{eval $column_is_nullable = $column['column_is_nullable']}
+{eval $column_elemtype = $column['column_elemtype']}
+{eval $column_vin = $column['column_vin']}
+{eval $column_vtype = $column['column_vtype']}
+{eval $column_vlen = $column['column_vlen']}
+
+    {if $column_vin}
+        array("{$column_en}","{:implode(',', $column_vin)}","{$column_cn}可选值{:implode(',', $column_vin)}",0,"in"),
+    {elseif $column_vtype == 'string' && $column_vlen > 0}
+        array("{$column_en}","1,{$column_vlen}","{$column_cn}长度1,{$column_vlen}",0,"length"),
+    {elseif $column_vtype == 'int'}
+        array("{$column_en}","integer","{$column_cn}要为整数",0,"regex"),
+    {elseif $column_vtype == 'double'}
+        array("{$column_en}","double","{$column_cn}要为浮点",0,"regex"),
+    {/if}
+
+{/loop}
+
+);
+
+\$data = I("");
+\$model = M();
+if (\$model->validate(\$rules)->create(\$data) === false){
+    \$this->error(2001, \$model->getError());
+}
+
+\$data = array(
+{loop $columns $column}
+{eval $column_en = $column['column_en']}
+    "{$column_en}" => I("{$column_en}"),
+{/loop}
+);
+
+if (!M("xxx")->add(\$data)){
+    \$this->error("新增失败");
+}
+\$this->success("ok");
