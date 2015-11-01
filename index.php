@@ -6,6 +6,7 @@
  * Time: 9:20
  */
 
+error_reporting(E_ALL ^ E_NOTICE);
 define('DOCROOT', realpath('./').'/');
 define('PATH_ROOT', DOCROOT);
 define('PATH_TOOL', PATH_ROOT.'tools/');
@@ -18,7 +19,7 @@ define('PAGE_ROWS', 8); //分页
 
 
 $tmp = explode('/', substr($_SERVER['PATH_INFO'], 1));
-$c = isset($tmp[0]) && !empty($tmp[0]) ? $tmp[0] : (isset($_GET['c']) ? $_GET['c'] : 'createmodel');
+$c = isset($tmp[0]) && !empty($tmp[0]) ? $tmp[0] : (isset($_GET['c']) ? $_GET['c'] : 'ergodic'); //createmodel
 $a = isset($tmp[1]) && !empty($tmp[1]) ? $tmp[1] : (isset($_GET['a']) ? $_GET['a'] : 'index');
 
 /**

@@ -3,94 +3,97 @@
 <body id="main_page">
 
 <div id="nav">
-	<a href="{:U('ergodic/index')}">遍历字段</a>
+    <a href="{:U('createmodel/index')}">创建模型</a>
+    <a href="{:U('ergodic/index')}">遍历字段</a>
 </div>
 <div class="wrap">
-	<div class="container">
-		<div id="main">
-			<div class="con box-green">
-				<form action="{:U('ergodic/submit')}" method="post" enctype="multipart/form-data">
-					<div class="box-header">
-						<h4>遍历字段</h4>
-					</div>
-					<div class="box-content">
-						<table class="table-font">
-							<tr>
-								<th class="w120">请选择连接：</th>
-								<td><select name="dbconn" id="dbconn">
-								<option value="">--请选择--</option>
-								{loop $dbconns $one}
-								<option value="{$one}" {if $_REQUEST['dbconn'] == $one} selected{/if}>{$one}</option>
-								{/loop}
-								</select></td>
-							</tr>
-							<tr>
-								<th class="w120">请选择表格：</th>
-								<td><select name="tables" id="tables">
-								<option value="">--请选择--</option>
-								{loop $tables $one}
-								<option value="{$one['table_name']}">{$one['table_name']} {if $one['isnew']=='yes'}【新表】{/if}</option>
-								{/loop}
-								</select></td>
-							</tr>
-							<tr>
-								<th class="w120">名称：</th>
-								<td><input name="modname" type="text" class="textinput w270" id="modname" value="" /></td>
-							</tr>
-							<tr>
-								<th class="w120">请选择模板：</th>
-								<td><select name="element_tpl" id="element_tpl">
-									<option value="">--请选择--</option>
-									{loop $elptpls $one}
-									<option value="{$one}">{$one}</option>
-									{/loop}
-								</select></td>
-							</tr>
-						</table>
-				  </div>
-					<div class="box-footer">
-						<div class="box-footer-inner">
-							<input type="submit" class="formbtn" value="提交" />
-							<input type="button" class="formbtn" value="返回" onClick="javascript:history.go(-1)" /> 
-							{if $_REQUEST['id']}
-							<input name="id" type="hidden" id="id" value="{$_REQUEST['id']}">
-							{/if}
-							</div>
-					</div>
-				</form>
-			</div>
-			<!--/ con--> 
+    <div class="container">
+        <div id="main">
+            <div class="con box-green">
+                <form action="{:U('ergodic/show')}" method="post" enctype="multipart/form-data">
+                    <div class="box-header">
+                        <h4>遍历字段</h4>
+                    </div>
+                    <div class="box-content">
+                        <table class="table-font">
+                            <tr>
+                                <th class="w120">连接：</th>
+                                <td><select name="dbconn" id="dbconn">
+                                    <option value="">--请选择连接--</option>
+                                    {loop $dbconns $one}
+                                    <option value="{$one}" {if $_REQUEST['dbconn'] == $one} selected{/if}>{$one}</option>
+                                    {/loop}
+                                </select></td>
 
-		</div>
-	</div>
-	<!--/ container--> 
+                                <th class="w120">表格：</th>
+                                <td><select name="tables" id="tables">
+                                    <option value="">--请选择表格--</option>
+                                    {loop $tables $one}
+                                    <option value="{$one['table_name']}" {if ($_REQUEST['tables'] == $one['table_name'])}selected="selected"{/if}>{$one['table_name']} {if $one['isnew']=='yes'}【新表】{/if}</option>
+                                    {/loop}
+                                </select></td>
+
+                                <th class="w120">名称：</th>
+                                <td><input name="modname" type="text" class="textinput w270" id="modname" value="{$_REQUEST['modname']}" /></td>
+
+                                <th class="w120">生成模板：</th>
+                                <td><select name="element_tpl" id="element_tpl">
+                                    <option value="">--请选择生成模板--</option>
+                                    {loop $elptpls $one}
+                                    <option value="{$one}" {if ($_REQUEST['element_tpl'] == $one)}selected="selected"{/if}>{$one}</option>
+                                    {/loop}
+                                </select></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="box-footer">
+                        <div class="box-footer-inner">
+                            <input type="submit" class="formbtn" value="提交" />
+                            <input type="button" class="formbtn" value="返回" onClick="javascript:history.go(-1)" />
+                            {if $_REQUEST['id']}
+                            <input name="id" type="hidden" id="id" value="{$_REQUEST['id']}">
+                            {/if}
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--/ con-->
+
+        </div>
+    </div>
+    <!--/ container-->
+
+    <div class="container">
+        <p>生成代码.<br><textarea rows='38' cols='160'>{$content}</textarea></p>
+    </div>
+    <!--/ container-->
 
 </div>
-<!--/ wrap--> 
+<!--/ wrap-->
 
 <script type="text/javascript">
-$(function(){
-	//选择表事件
-	$('#tables').change(function(){
-		var tablename;
-		tablename = $(this).val().replace(/jd_(.*)/g, "$1");
-		$('#modname').val(tablename);
-	});
+    $(function(){
+        //选择表事件
+        $('#tables').change(function(){
+            var tablename;
+            tablename = $(this).val().replace(/jd_(.*)/g, "$1");
+            $('#modname').val(tablename);
+        });
 
-	//
-	$('#model_source_en').change(function(){
-		var s = $(this).val();
-		var sshort = s.substring(s.indexOf('_')+1);
-		var modname = $('#modname').val();
-		$('#model_source_replace').val(s+'-'+modname+'\n'+sshort+'-'+modname);
-	});
+        //
+        $('#model_source_en').change(function(){
+            var s = $(this).val();
+            var sshort = s.substring(s.indexOf('_')+1);
+            var modname = $('#modname').val();
+            $('#model_source_replace').val(s+'-'+modname+'\n'+sshort+'-'+modname);
+        });
 
-	$('#dbconn').change(function(){
-		self.location.href = '{:U('ergodic?dbconn=')}'+$(this).val();
-	});
+        $('#dbconn').change(function(){
+            self.location.href = '{:U('ergodic?dbconn=')}'+$(this).val();
+        });
 
 
-});
+    });
 
 
 

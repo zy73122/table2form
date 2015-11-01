@@ -1,0 +1,244 @@
+
+/**
+ * 列表页面:View/{$modname_en}/index.html
+ */
+{\// 引入标签库 }
+<include file="Public:header" />
+<div class="main">
+    <div class="main_title">{\$main_title}</div>
+    <div class="blank5"></div>
+    <div class="button_row">
+        <input type="button" class="button" value="{\:L(ADD)}" onclick="add();" />
+        <input type="button" class="button" value="{\:L(DEL)}" onclick="del();" />
+    </div>
+    <div class="blank5"></div>
+    <div class="search_row">
+        <form name="search" action="__URL__" method="get">
+            {loop $columns $column}
+            {eval $column_type = $column['column_type']}
+            {eval $column_en = $column['column_en']}
+            {eval $column_cn = $column['column_cn']}
+            {eval $column_default = $column['column_default']}
+            {eval $column_is_nullable = $column['column_is_nullable']}
+            {eval $column_elemtype = $column['column_elemtype']}
+            {eval $column_vin = $column['column_vin']}
+            {eval $column_vlen = $column['column_vlen']}
+            {if $column_elemtype == 'radio' || $column_elemtype == 'select'}
+                <!--#select方式显示-->
+                {$column_cn}：<select name="{$column_en}">
+                    <option value="-1">全部</option>
+                    {loop $column_vin $oneval}
+                    <option value="{$oneval}" <if condition="\$_REQUEST['{$column_en}'] eq '\$oneval'">selected="selected"</if>>{$oneval}</option>
+                    {/loop}
+                </select>
+
+            {elseif $column_elemtype == 'datetime'}
+                <!--#日期方式显示-->
+                {$column_cn}：<input type="text" class="textbox" name="begin_{$column_en}" id="begin_{$column_en}" value="{\$_REQUEST['{$column_en}']}" onfocus="this.blur(); return showCalendar('begin_{$column_en}', '%Y-%m-%d %H:%M:%S', false, false, '');">
+
+            {elseif $column_elemtype == 'input' and $column_vlen <= 60}
+                <!--#input方式显示-->
+                {$column_cn}：<input name="{$column_en}" class="textbox" value="{\$_REQUEST['{$column_en}']}" />
+            {/if}
+            {/loop}
+
+            <input type="submit" class="button" value="{\:L(SEARCH)}" />
+            <input type="button" class="button" value="{\:L(EXPORT)}" onclick="export_csv();" />
+        </form>
+    </div>
+    <div class="blank5"></div>
+    <html:list
+            id="dataTable"
+            style="dataTable"
+            name="row"
+            checkbox="true"
+            action="true"
+            datasource="list"
+            show="id:{\$Think.lang.ID}|50px
+        {loop $columns $column}
+            {if strpos($column['column_en'], 'time') !== false}
+                ,{$column['column_en']}|to_date:{$column['column_cn']}\
+            {elseif $column['column_en'] == 'is_effect'}
+                ,is_effect|get_is_effect=\$row['id']:{\$Think.lang.IS_EFFECT}\
+            {else}
+                ,{$column['column_en']}:{$column['column_cn']}\
+            {/if}
+        {/loop}
+                "
+            actionlist="edit:{\$Think.lang.EDIT}, del:{\$Think.lang.DEL}" />
+
+    <div class="blank5"></div>
+    <div class="page">{$page}</div>
+</div>
+<include file="Public:footer" />
+
+
+/**
+ * 编辑页面:View/{$modname_en}/edit.html
+ */
+{\// 引入标签库 }
+<include file="Public:header" />
+<script type="text/javascript" src="__STATIC__/dnbadmin/njs/calendar/calendar.php?lang=zh-cn" ></script>
+<load href='__STATIC__/dnbadmin/njs/calendar/calendar.css' />
+<load href='__STATIC__/dnbadmin/njs/calendar/calendar.js' />
+<div class="main">
+    <div class="main_title">{\$vo.adm_name}{\:L(EDIT)} <a href="javascript:history.go(-1)" class="back_list">{\:L(BACK_LIST)}</a> <a href="javascript:history.go(-1)" class="back_list">后退</a></div>
+    <div class="blank5"></div>
+    <form name="edit" action="__URL__" method="post" enctype="multipart/form-data">
+    <table class="form conf_tab" cellpadding=0 cellspacing=0 rel="1">
+        <tr>
+            <td colspan=2 class="topTd"></td>
+        </tr>
+    {loop $columns $column}
+    {eval $column_type = $column['column_type']}
+    {eval $column_en = $column['column_en']}
+    {eval $column_cn = $column['column_cn']}
+    {eval $column_default = $column['column_default']}
+    {eval $column_is_nullable = $column['column_is_nullable']}
+    {eval $column_elemtype = $column['column_elemtype']}
+    {eval $column_vin = $column['column_vin']}
+        <tr>
+            <th class="item_title">{$column['column_cn']}：</th>
+            <td class="item_input">
+            {if $column_elemtype == 'radio'}
+                <!--#radio方式显示-->
+                {loop $column_vin $oneval}
+                <lable><input type="radio" name="{$column_en}" id="{$column_en}" value="{$oneval}" <if condition="\$vo['{$column_en}']=='$oneval' or '{$column_default}' == '$oneval'">checked</if>>{$oneval}</lable>
+                {/loop}
+
+            {elseif $column_elemtype == 'select'}
+                <!--#select方式显示-->
+                <select name="{$column_en}" id="{$column_en}">
+                    {loop $column_vin $oneval}
+                    <option value="{$oneval}" <if condition="\$vo['{$column_en}']=='$oneval' or '{$column_default}' == '$oneval'">selected="selected"</if>>{$oneval}</option>
+                    {/loop}
+                </select>
+
+            {elseif $column_elemtype == 'textarea'}
+                <!--#textarea方式显示-->
+                <textarea name="{$column_en}" id="{$column_en}" class="textarea">{\$vo.{$column_en}}&lt;/textarea&gt;
+
+            {elseif $column_elemtype == 'textarea_editor'}
+                <!--#editor方式显示-->
+                <html:editor id="{$column_en}" name="{$column_en}" type="KINDEDITOR" style="widtd:720px;height:420px">{\$vo.{$column_en}}</html:editor>
+
+            {elseif $column_elemtype == 'datetime'}
+                <!--#日期方式显示-->
+                <input type="text" class="textbox require" name="{$column_en}" id="{$column_en}" value="<if condition="\$vo['{$column_en}']">{eval echo date("Y-m-d H:i:s", $vo['{$column_en}'])}</if>" onfocus="this.blur(); return showCalendar('{$column_en}', '%Y-%m-%d %H:%M:%S', false, false, 'btn_{$column_en}');">
+                <input type="button" class="button" id="btn_{$column_en}" value="选择时间" onclick="return showCalendar('{$column_en}', '%Y-%m-%d %H:%M:%S', false, false, 'btn_{$column_en}');">
+                <input type="button" class="button" value="清空时间" onclick="$('#{$column_en}').val('');">
+
+            {else}
+                <!--#input方式显示-->
+                <input name="{$column_en}" id="{$column_en}" class="textbox{if $column_is_nullable == 'NO'} require{/if}" value="{\$vo.{$column_en}}" />
+
+            {/if}
+
+            </td>
+        </tr>
+
+    {/loop}
+        <tr>
+            <td class="item_title"></td>
+            <td class="item_input">
+                <!--隐藏元素-->
+                <input type="hidden" name="id" value="{\$vo.id}" />
+                <input type="hidden" name="{\:C("VAR_CONTROLLER")}" value="{$modname_en}" />
+                <input type="hidden" name="{\:C("VAR_ACTION")}" value="update" />
+                <!--隐藏元素-->
+                <input type="submit" class="button" value="{\:L(EDIT)}" id="submit" />
+                <input type="reset" class="button" value="{\:L(RESET)}" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan=2 class="bottomTd"></td>
+        </tr>
+    </table>
+    </form>
+</div>
+<include file="Public:footer" />
+
+/**
+* 新增页面:View/{$modname_en}/add.html
+*/
+{\// 引入标签库 }
+<include file="Public:header" />
+<script type="text/javascript" src="__STATIC__/dnbadmin/njs/calendar/calendar.php?lang=zh-cn" ></script>
+<load href='__STATIC__/dnbadmin/njs/calendar/calendar.css' />
+<load href='__STATIC__/dnbadmin/njs/calendar/calendar.js' />
+<div class="main">
+    <div class="main_title">{\$vo.adm_name}{\:L(ADD)} <a href="{\:U("{$modname_en}/index")}" class="back_list">{\:L(BACK_LIST)}</a> <a href="javascript:history.go(-1)" class="back_list">后退</a></div>
+    <div class="blank5"></div>
+    <form name="add" action="__URL__" method="post" enctype="multipart/form-data">
+        <table class="form conf_tab" cellpadding=0 cellspacing=0 rel="1">
+            <tr>
+                <td colspan=2 class="topTd"></td>
+            </tr>
+            {loop $columns $column}
+            {eval $column_type = $column['column_type']}
+            {eval $column_en = $column['column_en']}
+            {eval $column_cn = $column['column_cn']}
+            {eval $column_default = $column['column_default']}
+            {eval $column_is_nullable = $column['column_is_nullable']}
+            {eval $column_elemtype = $column['column_elemtype']}
+            {eval $column_vin = $column['column_vin']}
+            <tr>
+                <th class="item_title">{$column['column_cn']}：</th>
+                <td class="item_input">
+                    {if $column_elemtype == 'radio'}
+                    <!--#radio方式显示-->
+                    {loop $column_vin $oneval}
+                    <lable><input type="radio" name="{$column_en}" id="{$column_en}" value="{$oneval}" <if condition="\$vo['{$column_en}']=='$oneval' or '{$column_default}' == '$oneval'">checked</if>>{$oneval}</lable>
+                    {/loop}
+
+                    {elseif $column_elemtype == 'select'}
+                    <!--#select方式显示-->
+                    <select name="{$column_en}" id="{$column_en}">
+                        {loop $column_vin $oneval}
+                        <option value="{$oneval}" <if condition="\$vo['{$column_en}']=='$oneval' or '{$column_default}' == '$oneval'">selected="selected"</if>>{$oneval}</option>
+                        {/loop}
+                    </select>
+
+                    {elseif $column_elemtype == 'textarea'}
+                    <!--#textarea方式显示-->
+                <textarea name="{$column_en}" id="{$column_en}" class="textarea">{\$vo.{$column_en}}&lt;/textarea&gt;
+
+            {elseif $column_elemtype == 'textarea_editor'}
+                <!--#editor方式显示-->
+                <html:editor id="{$column_en}" name="{$column_en}" type="KINDEDITOR" style="widtd:720px;height:420px">{\$vo.{$column_en}}</html:editor>
+
+            {elseif $column_elemtype == 'datetime'}
+                <!--#日期方式显示-->
+                <input type="text" class="textbox require" name="{$column_en}" id="{$column_en}" value="<if condition="\$vo['{$column_en}']">{eval echo date("Y-m-d H:i:s", $vo['{$column_en}'])}<\/if>" onfocus="this.blur(); return showCalendar('{$column_en}', '%Y-%m-%d %H:%M:%S', false, false, 'btn_{$column_en}');">
+                <input type="button" class="button" id="btn_{$column_en}" value="选择时间" onclick="return showCalendar('{$column_en}', '%Y-%m-%d %H:%M:%S', false, false, 'btn_{$column_en}');">
+                <input type="button" class="button" value="清空时间" onclick="$('#{$column_en}').val('');">
+
+            {else}
+                <!--#input方式显示-->
+                <input name="{$column_en}" id="{$column_en}" class="textbox{if $column_is_nullable == 'NO'} require{/if}" value="{\$vo.{$column_en}}" />
+
+            {/if}
+
+                </td>
+            </tr>
+
+            {/loop}
+            <tr>
+                <td class="item_title"></td>
+                <td class="item_input">
+                    <!--隐藏元素-->
+                    <input type="hidden" name="id" value="{\$vo.id}" />
+                    <input type="hidden" name="{\:C("VAR_CONTROLLER")}" value="{$modname_en}" />
+                    <input type="hidden" name="{\:C("VAR_ACTION")}" value="insert" />
+                    <!--隐藏元素-->
+                    <input type="submit" class="button" value="{\:L(ADD)}" id="submit" />
+                    <input type="reset" class="button" value="{\:L(RESET)}" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan=2 class="bottomTd"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<include file="Public:footer" />

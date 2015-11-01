@@ -43,7 +43,11 @@ class c_ergodic extends base_controller {
         $elptpls = cfile::ls(PATH_TPLS.'element/');
         $this->view->assign('elptpls', $elptpls);
 
-        $this->view->display('ergodic/index', null, "admin");
+        if ($_POST) {
+            $this->submit();
+        }
+
+        $this->view->display('ergodic/index');
     }
 
     public function submit()
@@ -56,6 +60,8 @@ class c_ergodic extends base_controller {
             $element_tpl = $_POST['element_tpl']; //模板路径
             $model_source_replace = explode("\n", $_POST['model_source_replace']); //用来替换
             $modname_en = $_POST['modname']; //英文名
+
+            $this->view->assign('modname_en', str_replace(' ','',ucwords(str_replace('_',' ',$modname_en))));
 
             if (!$tablename)
                 throw new Exception("请选择表格");
@@ -107,7 +113,12 @@ class c_ergodic extends base_controller {
                     $vtype = '';
                     $vlen = '';
                     $vin = array();
-                    if (preg_match('/(enum)(.*)/i', $column_type))
+                    if (in_array($column_en, array('is_effect','is_delete')))
+                    {
+                        $vin = array(0,1);
+                        $showElemType = 'radio';
+                    }
+                    else if (preg_match('/(enum)(.*)/i', $column_type))
                     {
                         if (preg_match_all('/\'(.*)\'/iU', $column_type, $match))
                         {
@@ -193,7 +204,8 @@ class c_ergodic extends base_controller {
             }
 
 
-            $this->message("生成代码.<br><textarea rows='20' cols='100'>".$content."</textarea>", null, 1, 1);
+            //$this->message("生成代码.<br><textarea rows='20' cols='100'>".$content."</textarea>", null, 1, 1);
+            $this->view->assign('content', $content);
 
         }
         catch( Exception $e )
